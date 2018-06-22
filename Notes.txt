@@ -1,0 +1,5 @@
+Finish moving toggle switches to the left
+add in region selection
+format the units
+add legend
+add bar chart
