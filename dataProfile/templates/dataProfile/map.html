@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% block page_heading %}
+<h1>{{ map_file }}</h1>
+{% endblock %}
+<div class='row'>
+	<div class='col' style="min-width: 70%">
+		<div id='map'></div>
+	</div>
+	<div class='col'>
+		<div class='row'>
+
+			<!-- Rounded switch -->
+			<label class="switch">
+				<input type="checkbox" id="TN" onchange="flip('TN')" checked>
+				<span class="slider round"></span>
+			</label>
+			<h5 style="margin: 6px;">Trouw Nutrition</h5>
+		</div>
+		<div class='row'>
+			<!-- Rounded switch -->
+			<label class="switch">
+				<input type="checkbox"  id="HiPro"  onchange="flip('HiPro')" checked>
+				<span class="slider round"></span>
+			</label>
+			<h5 style="margin: 6px;">HiPro</h5>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+{{ block.super }}
+<script src="http://d3js.org/d3.v4.js"></script>
+<script type="text/javascript" src="../../../static/js/{{ map_file }}.js"></script>
+<script type="text/javascript" src="../../../static/js/map_functions.js"></script>
+
+{% endblock %}
