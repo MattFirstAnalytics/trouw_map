@@ -3,3 +3,21 @@ add in region selection
 format the units
 add legend
 add bar chart
+
+Can we find out where the Micro Nutrients are going?
+Trouw Nutrition data doesn't have location
+
+Format units
+Add legend
+
+Filter on where it's coming from
+Filter by product group
+Add facilities, don't have to be linked to BEA
+Add toggle for switching between, shipped to recieved
+Measure how much is going into an area minus what Trouw is sending in.
+    Percentage
+    Absolute
+
+
+Data Notes
+

@@ -20,7 +20,7 @@ info.onAdd = function (map) {
 };
 
 info.update = function (props) {
-    this._div.innerHTML = (props ? '<h4>Sales Purchased by BEA</h4><b>BEA Name: ' + props.name + '<br/><b>Volume: ' + props.density :
+    this._div.innerHTML = (props ? '<h4>Sales Purchased by BEA</h4><b>BEA Name: ' + props.name + '<br/><b>Volume: ' + props.density + ' MT':
         '<h4>Sales Purched by BEA</h4><b>BEA Name:   </br><b>Volume:');
 };
 
@@ -40,9 +40,12 @@ for (var i = 0; i < statesData["features"].length; i++) {
 };
 
 
-console.log(mv);
-console.log(lv);
-color_scale = d3.scaleLog()
+
+// color_scale = d3.scaleLog()
+//     .domain([lv, mv])
+//     .range(["#055faa", "#c1182b"]);
+
+color_scale = d3.scaleLinear()
     .domain([lv, mv])
     .range(["#055faa", "#c1182b"]);
 
@@ -112,25 +115,28 @@ var legend = L.control({
     position: 'bottomright'
 });
 
-// legend.onAdd = function (map) {
+legend.onAdd = function (map) {
 
-//     var div = L.DomUtil.create('div', 'info legend'),
-//         grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-//         labels = [],
-//         from, to;
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [lv, lv + (mv - lv)/5, lv + 2 * (mv - lv)/5, lv + 3 * (mv - lv)/5,  mv],
+        labels = [],
+        from, to;
 
-//     for (var i = 0; i < grades.length; i++) {
-//         from = grades[i];
-//         to = grades[i + 1];
+    for (var i = 0; i < grades.length; i++) {
+        from = parseInt(grades[i]);
+        to = grades[i + 1];
 
-//         labels.push(
-//             '<i style="background:' + getColor(from + 1) + '"></i> ' +
-//             from + (to ? '&ndash;' + to : '+'));
-//     }
+        labels.push(
+            '<i style="background:' + color_scale(from + 1) + '"></i> ' + from);
 
-//     div.innerHTML = labels.join('<br>');
-//     return div;
-// };
+        // labels.push(
+        //     '<i style="background:' + color_scale(from + 1) + '"></i> ' +
+        //     from + (to ? '&ndash;' + to : '+'));
+    }
+
+    div.innerHTML = labels.join('<br>');
+    return div;
+};
 
 legend.addTo(map);
 

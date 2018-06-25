@@ -67,31 +67,66 @@
               <li class="nav-item">
                 <a id="buttonOverview" class="nav-link active" href="/dataProfile/map?file=regions">
                   <span data-feather="map"></span>
-                  Region <span class="sr-only">(current)</span>
+                  Map <span class="sr-only"></span>
                 </a>
               </li>
+              <ul class="nav flex-column" style="margin-left: 25px">           
+                <li class="nav-item">
+                  <a id="buttonOverview" class="nav-link active" href="/dataProfile/map?file=regions">
+                    Region <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a id="buttonColumns" class="nav-link accordion" href="/dataProfile/map?file=states">
+                    States
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a id="buttonColumns" class="nav-link accordion" href="/dataProfile/map?file=BEA">
+                    BEA
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a id="buttonColumns" class="nav-link accordion" href="/dataProfile/map?file=counties">
+                    Counties
+                  </a>
+                </li>
+              </ul>
               <li class="nav-item">
-                <a id="buttonColumns" class="nav-link accordion" href="/dataProfile/map?file=states">
-                  <span data-feather="map"></span>
-                  States
-                </a>
-              </li>
-              <!-- <li class="nav-item">
-                <a id="buttonColumns" class="nav-link accordion" href="/dataProfile/map?file=bea-ea">
-                  <span data-feather="map"></span>
-                  BEA-EA
-                </a>
-              </li> -->
-              <li class="nav-item">
-                <a id="buttonColumns" class="nav-link accordion" href="/dataProfile/map?file=BEA">
-                  <span data-feather="map"></span>
-                  BEA
-                </a>
-              </li>
-              <li class="nav-item">
-                <a id="buttonColumns" class="nav-link accordion" href="/dataProfile/map?file=counties">
-                  <span data-feather="map"></span>
-                  Counties
+                  <span data-feather="layers"></span>
+                  Metrics<span class="sr-only"></span>
+                  <ul class="nav flex-column" style="margin-left: 25px">   
+
+                    <div class="row" style="padding-left: 16px;">
+                      <li class="nav-item">
+                        <label class="switch">
+                          <input type="checkbox" id="TN" onchange="flip('TN')" checked>
+                            <span class="slider round"></span>
+                            <a id="buttonColumns" class="nav-link accordion" href="#" style="padding-top: 0px; padding-left: 45px;">
+                              Trouw Nutrition
+                            </a>
+                          </input>
+                        </label>
+                      </li>
+                    </div>
+      
+                    <li class="nav-item">
+                      <div class="row" style="padding-left: 16px;">
+                      <label class="switch">
+                        <input type="checkbox"  id="HiPro"  onchange="flip('HiPro')" checked>
+                        <span class="slider round"></span>
+                        <a id="buttonColumns" class="nav-link accordion" href="#" style="padding-top: 0px; padding-left: 45px;">
+                          HiPro
+                        </a>
+                      </div>
+                      </label>
+ 
+                    </li>
+
+                    <li>
+
+                    </li>
+                  </ul>
                 </a>
               </li>
             </ul>
