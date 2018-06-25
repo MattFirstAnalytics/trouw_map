@@ -121,3 +121,14 @@ def load_preview_from_scatter(file_path, scatter_data, name, data_dictionary):
     # appends it to the dictionary
     data_dictionary[name] = {'columns': columns, 'values': values}
     return data_dictionary
+
+
+def get_unique_lists(file_name):
+    res = {}
+    df = pd.read_csv('/home/matt/FirstAnalytics/trouw/webapp/dataProfile/static/data/BEA.csv')
+    df = df.drop('Invoiced Quantity Kgs', axis=1)
+    for c in df.columns:
+        res[c.replace(' ', '_')] = list(df[c].unique())
+    # print(res)
+    return(res)
+    # print(df.head())

@@ -20,8 +20,8 @@ info.onAdd = function (map) {
 };
 
 info.update = function (props) {
-    this._div.innerHTML = (props ? '<h4>Sales Purchased by BEA</h4><b>BEA Name: ' + props.name + '<br/><b>Volume: ' + props.density + ' MT':
-        '<h4>Sales Purched by BEA</h4><b>BEA Name:   </br><b>Volume:');
+    this._div.innerHTML = (props ? '<h4>Sales by BEA</h4><b>BEA Name: ' + props.name + '<br/><b>Volume: ' + props.density + ' MT':
+        '<h4>Sales by BEA</h4><b>BEA Name:   </br><b>Volume:');
 };
 
 info.addTo(map);
@@ -118,7 +118,7 @@ var legend = L.control({
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [lv, lv + (mv - lv)/5, lv + 2 * (mv - lv)/5, lv + 3 * (mv - lv)/5,  mv],
+        grades = [mv, lv + 3 * (mv - lv)/5, lv + 2 * (mv - lv)/5, lv + (mv - lv)/5,  lv],
         labels = [],
         from, to;
 

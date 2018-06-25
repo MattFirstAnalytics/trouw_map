@@ -93,42 +93,73 @@
                 </li>
               </ul>
               <li class="nav-item">
+                <a id="buttonOverview" class="nav-link active" href="/dataProfile/map?file=regions">
                   <span data-feather="layers"></span>
                   Metrics<span class="sr-only"></span>
-                  <ul class="nav flex-column" style="margin-left: 25px">   
-
-                    <div class="row" style="padding-left: 16px;">
-                      <li class="nav-item">
-                        <label class="switch">
-                          <input type="checkbox" id="TN" onchange="flip('TN')" checked>
-                            <span class="slider round"></span>
-                            <a id="buttonColumns" class="nav-link accordion" href="#" style="padding-top: 0px; padding-left: 45px;">
-                              Trouw Nutrition
-                            </a>
-                          </input>
-                        </label>
-                      </li>
-                    </div>
-      
-                    <li class="nav-item">
-                      <div class="row" style="padding-left: 16px;">
-                      <label class="switch">
-                        <input type="checkbox"  id="HiPro"  onchange="flip('HiPro')" checked>
-                        <span class="slider round"></span>
-                        <a id="buttonColumns" class="nav-link accordion" href="#" style="padding-top: 0px; padding-left: 45px;">
-                          HiPro
-                        </a>
-                      </div>
-                      </label>
- 
-                    </li>
-
-                    <li>
-
-                    </li>
-                  </ul>
                 </a>
               </li>
+              <ul class="nav flex-column" style="margin-left: 25px">   
+                <li class="nav-item" style="padding-left: 10px;">
+                  <label class="switch">
+                    <input type="checkbox" id="TN" onchange="flip('TN')" checked>
+                      <span class="slider round"></span>
+                      <a id="buttonColumns" class="nav-link accordion" href="#" style="padding-top: 0px; padding-left: 45px;">
+                        Trouw Nutrition
+                      </a>
+                    </input>
+                  </label>
+                </li>
+                <li class="nav-item"  style="padding-left: 10px;">
+                  <label class="switch">
+                    <input type="checkbox"  id="HiPro"  onchange="flip('HiPro')" checked>
+                    <span class="slider round"></span>
+                    <a id="buttonColumns" class="nav-link accordion" href="#" style="padding-top: 0px; padding-left: 45px;">
+                      HiPro
+                    </a>
+                  </label>
+                </li>
+              </ul>
+              <li class="nav-item">
+                <a id="buttonOverview" class="nav-link active" href="/dataProfile/map?file=regions">
+                  <span data-feather="map"></span>
+                  Filters <span class="sr-only"></span>
+                </a>
+              </li>
+              <ul class="nav flex-column" style="margin-left: 25px">   
+                <div class="dropdown" style="margin-top: 10px;">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Facility
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% for v in filters.Facility %}
+                    <a class="dropdown-item" href="#">{{ v }}</a>
+                    {% endfor %}
+                  </div>
+                </div>
+
+                <div class="dropdown" style="margin-top: 10px;">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Product Group
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% for v in filters.Product_Group_Level_1 %}
+                    <a class="dropdown-item" href="#">{{ v }}</a>
+                    {% endfor %}
+                  </div>
+                </div>  
+
+                <div class="dropdown" style="margin-top: 10px;">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      BEA Name
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% for v in filters.BEA_Name %}
+                    <a class="dropdown-item" href="#">{{ v }}</a>
+                    {% endfor %}
+                  </div>
+                </div>  
+
+              </ul>
             </ul>
           </div>
         </nav>
