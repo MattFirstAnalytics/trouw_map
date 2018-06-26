@@ -195,7 +195,7 @@ div.tooltip {
   position: relative;
   display: inline-block;
   width: 37px;
-  height: 16px;
+  height: 24px;
 }
 
 /* Hide default HTML checkbox */
@@ -217,17 +217,17 @@ div.tooltip {
 .slider:before {
   position: absolute;
   content: "";
-  height: 10px;
+  height: 20px;
   width: 10px;
   left: 3px;
-  bottom: 3px;
+  bottom: 2px;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider {
-  background-color: #0052ab;
+  background-color: #3f79a6;
 }
 
 input:focus + .slider {
@@ -242,9 +242,36 @@ input:checked + .slider:before {
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 34px;
+  border-radius: 4px;
 }
 
 .slider.round:before {
-  border-radius: 50%;
+  border-radius: 20%;
+}
+
+/* dropdown filters */
+.btn-filters {
+  /* padding: 2px;  */
+  width: 130px;
+  text-align: left;
+  padding-left: 9px;
+  padding-top: 3px;
+  padding-bottom: 1px;
+}
+
+.toggle-label {
+  white-space: nowrap;
+  padding-top: 3px; 
+  padding-left: 45px;
+}
+
+.lhn-margin {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.lhn-width {
+  max-width: 300px;
 }

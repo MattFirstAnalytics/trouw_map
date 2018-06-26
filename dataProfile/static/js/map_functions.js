@@ -1,10 +1,13 @@
-var map = L.map('map').setView([37.8, -96], 4);
-
-var legend = L.control({
-    position: 'bottomright'
-});
-
+// global variables
+var map = L.map('map').setView([37.8, -96], 5);
+var legend = L.control({position: 'bottomright'});
 var info = L.control();
+
+// parameters
+var color_low = "#3f79a6";
+var color_high = "#e91129";
+var opacity_low = 0.7;
+var opacity_high = 0.9;
 
 function run_map(map_data){
 
@@ -59,17 +62,17 @@ function run_map(map_data){
 
     color_scale = d3.scaleLog()
         .domain([lv, mv])
-        .range(["#055faa", "#c1182b"]);
+        .range([color_low, color_high]);
 
     // color_scale = d3.scaleLinear()
     //     .domain([lv, mv])
-    //     .range(["#055faa", "#c1182b"]);
+    //     .range([color_low, color_high]);
 
     function density_check(density){
         if(density == 0){
             return(0);
         } else{
-            return(0.5);
+            return(opacity_low);
         };
     };
 
@@ -90,9 +93,8 @@ function run_map(map_data){
 
         layer.setStyle({
             weight: 1,
-            // color: '#666',
             dashArray: '',
-            fillOpacity: 0.7
+            fillOpacity: opacity_high
         });
 
         if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -164,7 +166,7 @@ function run_map(map_data){
     function flip(what_button){
         var position = document.getElementById(what_button).checked;
         if (position) {
-            var opacity_level = 0.5;
+            var opacity_level = opacity_low;
         } else {
             var opacity_level = 0.0;
         };
@@ -173,8 +175,8 @@ function run_map(map_data){
             try {
                 if (layer.feature.properties.type == what_button){
                     layer.setStyle({fillOpacity: opacity_level});
-                    if (opacity_level == 0.5){
-                        layer.setStyle({weight: opacity_level + 0.5});
+                    if (opacity_level == opacity_low){
+                        layer.setStyle({weight: opacity_level + opacity_low});
                     } else {
                         layer.setStyle({weight: opacity_level});
                     }

@@ -2,10 +2,9 @@
 
 {% block content %}
 {% block page_heading %}
-<h1>{{ map_file }}</h1>
 {% endblock %}
 <div class='row'>
-	<div class='col' style="min-width: 70%">
+	<div class='col' style="min-width: 98%">
 		<div id='map'></div>
 	</div>
 	<div class='col'>
@@ -67,7 +66,11 @@
 
 
 	// this is the code for reading in the data and aggregating it
-	function applyFilter(filter, value){
+	function applyFilter(filter, value, buttonId){
+
+		// gives the button the new value
+		console.log(buttonId);
+		document.getElementById(buttonId).innerText = value;
 
 		if (value == 'all'){
 			reset_filter();

@@ -10,6 +10,7 @@ Trouw Nutrition data doesn't have location
 
 Format units
 Add legend
+
 Filter on where it's coming from
     HiPro: we have from city, state, county, and zip
     TN: We have facility, with other datasets we can map that to a location
@@ -23,5 +24,6 @@ Measure how much is going into an area minus what Trouw is sending in.
     Absolute
 
 
-Data Notes
 
+read data in a js dictionary, aggregate it, then pass it to the map
+when a filter is applied update it and pass it to the map again. 
