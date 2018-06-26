@@ -11,7 +11,11 @@ Trouw Nutrition data doesn't have location
 Format units
 Add legend
 Filter on where it's coming from
+    HiPro: we have from city, state, county, and zip
+    TN: We have facility, with other datasets we can map that to a location
 Filter by product group
+    HiPro: no category
+    TN: Product Group Level 1
 Add facilities, don't have to be linked to BEA
 Add toggle for switching between, shipped to recieved
 Measure how much is going into an area minus what Trouw is sending in.

@@ -95,7 +95,7 @@
               <li class="nav-item">
                 <a id="buttonOverview" class="nav-link active" href="/dataProfile/map?file=regions">
                   <span data-feather="layers"></span>
-                  Metrics<span class="sr-only"></span>
+                  Data Sources<span class="sr-only"></span>
                 </a>
               </li>
               <ul class="nav flex-column" style="margin-left: 25px">   
@@ -127,37 +127,40 @@
               </li>
               <ul class="nav flex-column" style="margin-left: 25px">   
                 <div class="dropdown" style="margin-top: 10px;">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 2px;">
                     Facility
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" onclick="applyFilter('facility', 'all')">All</a>
                     {% for v in filters.Facility %}
-                    <a class="dropdown-item" href="#">{{ v }}</a>
+                    <a class="dropdown-item" href="#" onclick="applyFilter('facility', '{{ v }}')">{{ v }}</a>
                     {% endfor %}
                   </div>
                 </div>
 
                 <div class="dropdown" style="margin-top: 10px;">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 2px;">
                     Product Group
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" onclick="applyFilter('Product_Group_Level_1', 'all')">All</a>
                     {% for v in filters.Product_Group_Level_1 %}
-                    <a class="dropdown-item" href="#">{{ v }}</a>
+                    <a class="dropdown-item" href="#" onclick="applyFilter('Product_Group_Level_1', '{{ v }}')">{{ v }}</a>
                     {% endfor %}
                   </div>
                 </div>  
 
-                <div class="dropdown" style="margin-top: 10px;">
+                <!-- <div class="dropdown" style="margin-top: 10px;">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       BEA Name
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">All</a>
                     {% for v in filters.BEA_Name %}
                     <a class="dropdown-item" href="#">{{ v }}</a>
                     {% endfor %}
                   </div>
-                </div>  
+                </div>   -->
 
               </ul>
             </ul>
@@ -225,6 +228,9 @@
     <script>
       // this adds the feather icons
       feather.replace()
+
+
+
 
 
     </script>

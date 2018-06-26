@@ -23,6 +23,81 @@
 {{ block.super }}
 <script src="http://d3js.org/d3.v4.js"></script>
 <script type="text/javascript" src="../../../static/js/{{ map_file }}.js"></script>
+<script type="text/javascript" src="../../../static/js/BEA_data.js"></script>
 <script type="text/javascript" src="../../../static/js/map_functions.js"></script>
+
+
+<script>
+	// the initial data processing for the map
+	// gets the unique values of the BEAs
+	var bea_unique = [];
+	for (i = 0; i < data_all.length; i++){
+		bea_unique.push(data_all[i]['bea_name']);
+	};
+	  
+	function onlyUnique(value, index, self) { 
+    	return self.indexOf(value) === index;
+	};
+
+	bea_unique = bea_unique.filter(onlyUnique);
+
+	function reset_filter(){
+		// aggregates by the BEAs
+		var data_agg = {};
+		for (i = 0; i < bea_unique.length; i++){
+			data_agg[bea_unique[i]] = 0;
+			for (j = 0; j < data_all.length; j++){
+				if (data_all[j]['bea_name'] == bea_unique[i]){
+					// console.log(data_all[j]['value'])
+					data_agg[bea_unique[i]] = data_agg[bea_unique[i]] + parseInt(data_all[j]['value']);
+				};
+			};
+		};
+		
+		// updates the dataset that goes to the map
+		for (i = 0; i < statesData['features'].length; i++){
+			// console.log(statesData['features'][i]['density']);
+			statesData['features'][i]['properties']['density'] = data_agg[statesData['features'][i]['properties']['name']];
+		};
+
+		map_data = statesData;
+		run_map(statesData);
+	};
+	reset_filter();
+
+
+	// this is the code for reading in the data and aggregating it
+	function applyFilter(filter, value){
+
+		if (value == 'all'){
+			reset_filter();
+		} else {
+
+			// aggregates by the BEAs
+			var data_agg = {};
+			for (i = 0; i < bea_unique.length; i++){
+				data_agg[bea_unique[i]] = 0;
+				for (j = 0; j < data_all.length; j++){
+					if (data_all[j]['bea_name'] == bea_unique[i] && data_all[j][filter] == value){
+						// console.log(data_all[j]['value'])
+						data_agg[bea_unique[i]] = data_agg[bea_unique[i]] + parseInt(data_all[j]['value']);
+					};
+				};
+			};
+			
+			// updates the dataset that goes to the map
+			for (i = 0; i < statesData['features'].length; i++){
+				// console.log(statesData['features'][i]['density']);
+				statesData['features'][i]['properties']['density'] = data_agg[statesData['features'][i]['properties']['name']];
+			};
+
+			map_data = statesData;
+			run_map(statesData);
+		}
+
+	}
+
+</script>
+
 
 {% endblock %}
